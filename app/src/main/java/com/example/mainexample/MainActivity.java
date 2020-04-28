@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         dialogFragmentCustom = new DialogFragmentCustom();
     }
 
+
     //---header---
     void setStatusBar() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
     }
+
 
     //---set-menu-tool-bar---
     @Override
@@ -81,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(menuItem);
     }
+
 
     //---set-navigation---
     void navView() {
@@ -170,7 +173,6 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fl_app_bar_content, fragment, title);
-        //fragmentTransaction.addToBackStack(fragment.getClass().getSimpleName());
         fragmentTransaction.addToBackStack(title);
         fragmentTransaction.commit();
     }
