@@ -1,4 +1,4 @@
-package com.example.mainexample.ui.AsyncTask;
+package com.example.mainexample.ui.async_task;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -26,7 +26,7 @@ public class AsyncTaskFragment extends Fragment {
         btnLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new LoadImgInternet(imgLoad, getActivity()).execute("https://i2.wp.com/nokiapoweruser.com/wp-content/uploads/2019/10/nokia_9_1_pureview-camera.png?fit=1509%2C932&ssl=1");
+                new LoadImgInternet(imgLoad, getActivity()).execute("https://cdn.tgdd.vn/Files/2019/09/29/1203029/1_1280x720-800-resize.jpg");
             }
         });
     }
@@ -38,5 +38,9 @@ public class AsyncTaskFragment extends Fragment {
         mapping(view);
         loadImg();
         return view;
+    }
+
+    public String getTitle() {
+        return "Async Task";
     }
 }

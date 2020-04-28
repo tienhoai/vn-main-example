@@ -1,4 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <group >
+
+        <item
+            android:id="@+id/listview_item"
+            android:title="@string/listview" />
+
+        <item
+            android:id="@+id/recyclerview_item"
+            android:title="RecyclerView"/>
+
+        <item
+        android:id="@+id/tab_view_item"
+        android:title="Tablayout Viewpager"/>
+    </group>
+
+    <group>
+
+        <item
+            android:id="@+id/asynctask_item"
+            android:title="AsyncTask"/>
+
+        <item
+            android:id="@+id/json_item"
+            android:title="Json load data server"/>
+
+        <item
+            android:id="@+id/dialog_item"
+            android:title="Dialog Custom"/>
+    </group>
 </menu>

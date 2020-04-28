@@ -1,4 +1,4 @@
-package com.example.mainexample.fragment;
+package com.example.mainexample.ui.main;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
