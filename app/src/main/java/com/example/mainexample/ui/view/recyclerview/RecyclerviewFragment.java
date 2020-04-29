@@ -37,7 +37,7 @@ public class RecyclerviewFragment extends Fragment {
 
     private void addItemRecyclerView() {
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3));
         recyclerView.setAdapter(new RecyclerAdapter(listData(), getContext()));
     }
 

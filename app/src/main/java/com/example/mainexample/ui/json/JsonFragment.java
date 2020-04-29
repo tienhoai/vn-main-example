@@ -16,6 +16,7 @@ import com.squareup.moshi.Types;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -48,7 +49,7 @@ public class JsonFragment extends Fragment {
                 String json = response.body().string();
                 final List<JsonDataItem> products = jsonAdapter.fromJson(json); //do du lieu json vao list
 
-                getActivity().runOnUiThread(new Runnable() {
+                Objects.requireNonNull(getActivity()).runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         recyclerView.setHasFixedSize(true);

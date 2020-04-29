@@ -29,23 +29,11 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayoutAppBarContent;
     Toolbar toolbarAppBarContent;
     NavigationView navAppBarContent;
-    ListviewFragment listviewFragment;
-    RecyclerviewFragment recyclerviewFragment;
-    AsyncTaskFragment asyncTaskFragment;
-    JsonFragment jsonFragment;
-    TablayoutViewpagerFragment tablayoutViewpagerFragment;
-    DialogFragmentCustom dialogFragmentCustom;
 
     void mapping() {
         drawerLayoutAppBarContent = findViewById(R.id.dl_app_bar_content);
         toolbarAppBarContent = findViewById(R.id.tb_app_bar_content);
         navAppBarContent = findViewById(R.id.nav_app_bar_content);
-        listviewFragment = new ListviewFragment();
-        recyclerviewFragment = new RecyclerviewFragment();
-        asyncTaskFragment = new AsyncTaskFragment();
-        jsonFragment = new JsonFragment();
-        tablayoutViewpagerFragment = new TablayoutViewpagerFragment();
-        dialogFragmentCustom = new DialogFragmentCustom();
     }
 
 
@@ -124,39 +112,39 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.listview_item: {
                         Log.e(devDebug, "Click listview_item");
-                        replaceFragment(listviewFragment ,listviewFragment.getTitle());
+                        replaceFragment(new ListviewFragment(), new ListviewFragment().getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
 
                     case R.id.recyclerview_item: {
                         Log.e(devDebug, "Click recyclerview_item");
-                        replaceFragment(recyclerviewFragment, recyclerviewFragment.getTitle());
+                        replaceFragment(new RecyclerviewFragment(), new RecyclerviewFragment().getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
 
                     case R.id.asynctask_item: {
                         Log.e(devDebug, "Click asynctask_item");
-                        replaceFragment(asyncTaskFragment, asyncTaskFragment.getTitle());
+                        replaceFragment(new AsyncTaskFragment(), new AsyncTaskFragment().getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
 
                     case R.id.json_item: {
-                        replaceFragment(jsonFragment, jsonFragment.getTitle());
+                        replaceFragment(new JsonFragment(), new JsonFragment().getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
 
                     case R.id.tab_view_item: {
-                        replaceFragment(tablayoutViewpagerFragment, tablayoutViewpagerFragment.getTitle());
+                        replaceFragment(new TablayoutViewpagerFragment(), new TablayoutViewpagerFragment().getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
 
                     case R.id.dialog_item: {
-                        replaceFragment(dialogFragmentCustom, dialogFragmentCustom.getTitle());
+                        replaceFragment(new DialogFragmentCustom(), new DialogFragmentCustom().getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
@@ -191,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
         mapping();
         setToolBar();
         navView();
+        replaceFragment(new RecyclerviewFragment(), new RecyclerviewFragment().getTitle());
     }
 
     @Override
