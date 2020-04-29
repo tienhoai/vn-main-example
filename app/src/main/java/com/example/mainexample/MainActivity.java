@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //---set-menu-tool-bar---
+    //---menu-tool-bar---
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
@@ -69,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
 
+            case R.id.toolbar_cart_item: {
+                Log.e(devDebug, "Click toolbar_cart_item");
+                break;
+            }
+
             default: {
                 break;
             }
@@ -77,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    //---set-navigation---
+    //---navigation-view---
     void navView() {
 
         drawerLayoutAppBarContent.addDrawerListener(new DrawerLayout.DrawerListener() {
