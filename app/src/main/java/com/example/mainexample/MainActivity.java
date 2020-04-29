@@ -1,5 +1,7 @@
 package com.example.mainexample;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -15,6 +17,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.SearchView;
+import android.widget.Toast;
+
 import com.example.mainexample.ui.async_task.AsyncTaskFragment;
 import com.example.mainexample.ui.dialog.DialogFragmentCustom;
 import com.example.mainexample.ui.json.JsonFragment;
@@ -55,6 +60,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        MenuItem mSearch = menu.findItem(R.id.toolbar_search_item);
+        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        mSearchView.setQueryHint("Search");
+
+        mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+//                Toast.makeText(MainActivity.this, newText, Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
         return true;
     }
 
