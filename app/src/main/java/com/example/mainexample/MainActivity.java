@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity {
                 drawerLayoutAppBarContent.openDrawer(navAppBarContent);
                 break;
             }
+
+            default: {
+                break;
+            }
         }
         return super.onOptionsItemSelected(menuItem);
     }

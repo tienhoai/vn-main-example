@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="3dp"
+    android:background="@drawable/border_solid"
     android:orientation="vertical">
 
 
@@ -12,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="10dp"
+        android:layout_margin="2dp"
         app:srcCompat="@drawable/product_01"/>
 
     <TextView
@@ -21,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_gravity="center"
-        android:layout_margin="5dp"/>
+        android:layout_margin="2dp"/>
 
     <TextView
         android:id="@+id/tv_price"
@@ -29,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="TextView"
         android:layout_gravity="center"
-        android:layout_margin="5dp"/>
+        android:layout_margin="2dp"/>
 
     <Button
         android:id="@+id/bt_mua"
