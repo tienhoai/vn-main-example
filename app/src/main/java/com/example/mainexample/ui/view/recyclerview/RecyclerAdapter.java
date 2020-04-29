@@ -12,14 +12,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mainexample.R;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
     private List<RecyclerDataItem> listItemRecycler;
+    ArrayList<RecyclerDataItem> arrayListItemRecycler;
     private Context context;
 
     public RecyclerAdapter(List<RecyclerDataItem> listItemRecycler, Context context) {
         this.listItemRecycler = listItemRecycler;
+        this.arrayListItemRecycler = new ArrayList<>(listItemRecycler);
         this.context = context;
     }
 
@@ -61,5 +66,20 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             txtPrice = itemView.findViewById(R.id.tv_price);
             btnMua = itemView.findViewById(R.id.bt_mua);
         }
+    }
+
+    public  void filter(String string) {
+        string = string.toLowerCase(Locale.getDefault());
+        listItemRecycler.clear();
+        if (string.length() == 0) {
+            listItemRecycler.addAll(arrayListItemRecycler);
+        } else {
+            for (RecyclerDataItem item : arrayListItemRecycler) {
+                if (item.getName().toLowerCase(Locale.getDefault()).contains(string)) {
+                    listItemRecycler.add(item);
+                }
+            }
+        }
+        notifyDataSetChanged();
     }
 }

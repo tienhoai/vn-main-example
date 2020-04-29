@@ -1,7 +1,5 @@
 package com.example.mainexample;
 
-import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -19,7 +17,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.SearchView;
 import android.widget.Toast;
-
 import com.example.mainexample.ui.async_task.AsyncTaskFragment;
 import com.example.mainexample.ui.dialog.DialogFragmentCustom;
 import com.example.mainexample.ui.json.JsonFragment;
@@ -34,11 +31,13 @@ public class MainActivity extends AppCompatActivity {
     DrawerLayout drawerLayoutAppBarContent;
     Toolbar toolbarAppBarContent;
     NavigationView navAppBarContent;
+    RecyclerviewFragment recyclerviewFragment;
 
     void mapping() {
         drawerLayoutAppBarContent = findViewById(R.id.dl_app_bar_content);
         toolbarAppBarContent = findViewById(R.id.tb_app_bar_content);
         navAppBarContent = findViewById(R.id.nav_app_bar_content);
+        recyclerviewFragment = new RecyclerviewFragment();
     }
 
 
@@ -61,21 +60,26 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         MenuItem mSearch = menu.findItem(R.id.toolbar_search_item);
-        SearchView mSearchView = (SearchView) mSearch.getActionView();
+        final SearchView mSearchView = (SearchView) mSearch.getActionView();
         mSearchView.setQueryHint("Search");
 
         mSearchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
+                Toast.makeText(MainActivity.this, query, Toast.LENGTH_SHORT).show();
                 return false;
             }
+
             @Override
             public boolean onQueryTextChange(String newText) {
 //                Toast.makeText(MainActivity.this, newText, Toast.LENGTH_SHORT).show();
+//                recyclerviewFragment.setKeySearch(newText);
+//                replaceFragment(recyclerviewFragment, recyclerviewFragment.getTitle());
                 return true;
             }
         });
-        return true;
+        //return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -144,7 +148,8 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.recyclerview_item: {
                         Log.e(devDebug, "Click recyclerview_item");
-                        replaceFragment(new RecyclerviewFragment(), new RecyclerviewFragment().getTitle());
+//                        replaceFragment(new RecyclerviewFragment(), new RecyclerviewFragment().getTitle());
+                        replaceFragment(recyclerviewFragment, recyclerviewFragment.getTitle());
                         drawerLayoutAppBarContent.closeDrawer(navAppBarContent);
                         break;
                     }
